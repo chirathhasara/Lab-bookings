@@ -1,0 +1,142 @@
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-image: url(assets/bacground2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2.5px solid rgb(255, 0, 0);
+  backdrop-filter: blur(25px);
+  
+ 
+}
+.Navigation-bar{
+  display: flex;
+  align-items: center;
+  gap: 65px;
+  margin-right: 50px;
+}
+
+.logo-image{
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.N-button{
+  padding: 10.5px;
+  width: 95px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: hsl(189, 74%, 53%);
+  color: white;
+  font-weight: bold; 
+}
+
+.bookingB-container{
+  position: relative;
+}
+.notification-num{
+  position: absolute;
+  top:-10px;
+  right: -8px;
+  background-color: red;
+  padding: 3px 7px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.N-button:hover{
+  background-color: hsl(189, 74%, 33%);
+}
+
+/* grid css*/
+
+.display-grid{
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  column-gap: 30px;
+  margin-left: 55px;
+  margin-top: 30px;
+ 
+}
+
+.lab-name{
+  margin-top: 5px;
+}
+
+.lab-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid black;
+  padding: 6px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.lab-img{
+  width: 220px;
+  height: 130px;
+  border-radius: 20px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.lab-img:hover{
+  width: 230px;
+  height: 140px;
+}
+
+.user-name{
+  padding: 8px;
+  width: 320px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+.user-description{
+  padding: 8px;
+  width: 320px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+.user-batch{
+  padding: 8px;
+  width: 340px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.user-date{
+  padding: 8px;
+  width: 320px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.book-button{
+  background-color: rgb(18, 218, 218);
+  border: none;
+  width: 130px;
+  padding: 10px;
+  border-radius: 18px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+.book-button:hover{
+  background-color: hsl(180, 85%, 36%);
+}
