@@ -140,3 +140,65 @@ body{
 .book-button:hover{
   background-color: hsl(180, 85%, 36%);
 }
+
+/* bookings css*/
+.head-title{
+ display: flex;
+ justify-content: center;
+ font-weight: bold;
+ color: rgb(255, 255, 255);
+ backdrop-filter: blur(10px);
+}
+
+.bookings-container,
+.bookings-container-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-bottom: 8px;
+  padding: 10px 10px;
+  backdrop-filter: blur(15px);
+  align-items: center;
+  border:1px solid rgb(22, 226, 226);
+  font-size: 16px;
+  font-weight: bold;
+  
+}
+.bookings-container-2{
+  border:1px solid red;
+  backdrop-filter: blur(50px);
+  color: rgb(34, 243, 51);
+  font-size: 18px
+}
+
+.delete-button{
+  padding: 10px;
+  max-width: 220px;
+  margin-left: 15px;
+  background-color: transparent;
+  border: 1px solid red;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  
+}
+.delete-button:hover{
+  background-color: red;
+  color: white;
+}
+
+.display-name{
+  margin-left: 5px;
+}
+
+.display-name-2{
+  margin-left: 5px;
+}
+
+.display-delete-2{
+  margin-left: 83px;
+}
+
+.display-date-2{
+  margin-left: 15px;
+}

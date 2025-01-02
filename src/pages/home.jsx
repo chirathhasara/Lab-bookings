@@ -1,45 +1,40 @@
-import React,{useState,useEffect} from "react";
+import React, { useState } from "react";
 import logo from '../assets/FAS-logo.gif';
 import physics from '../assets/physics.jpg';
 import chemistry from '../assets/chemistry.avif';
 import IT from '../assets/IT2.jpg';
-import {HashRouter as Router,Route,Routes, Link} from 'react-router-dom';
-import { Booking } from "./booking";
+import { HashRouter as Router, Link } from 'react-router-dom';
 
-
-export function Home(){
-
+export function Home() {
   const [notifications, setNotifications] = useState(0);
-
   const [bookings, setBookings] = useState([]);
 
   const handleInputChange = (index, field, value) => {
-
     setBookings((prevBookings) => {
-
       const updatedBookings = [...prevBookings];
-
       if (!updatedBookings[index]) {
         updatedBookings[index] = { name: "", description: "", batch: "", date: "" };
       }
       updatedBookings[index][field] = value;
-
       return updatedBookings;
     });
   };
 
-  const handleBooking = (index) => {
-    setNotifications(notifications + 1);
+  const handleBooking = (index, labName) => {
+    setNotifications((prevNotifications) => prevNotifications + 1);
 
+    const storedBookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    const newBooking = { ...bookings[index], labName };
+    const updatedBookings = [...storedBookings, newBooking];
+    localStorage.setItem("bookings", JSON.stringify(updatedBookings));
 
-    localStorage.setItem('bookings', JSON.stringify(bookings));
-    console.log("Saved Bookings:", JSON.parse(localStorage.getItem('bookings')));
+    console.log("Saved Bookings:", JSON.parse(localStorage.getItem("bookings")));
   };
 
   return (
     <>
       <div className="header">
-        <div><img src={logo} className="logo-image" /></div>
+        <div><img src={logo} className="logo-image" alt="Logo" /></div>
         <div className="Navigation-bar">
           <Link to="/"><button className="N-button">Home</button></Link>
           <Link to="/booking">
@@ -57,7 +52,7 @@ export function Home(){
         {["Physics", "Chemistry", "IT"].map((lab, index) => (
           <div className="lab-container" key={lab}>
             <h1 className="lab-name">{lab} Laboratory</h1>
-            <img src={lab === "Physics" ? physics : lab === "Chemistry" ? chemistry : IT} className="lab-img" />
+            <img src={lab === "Physics" ? physics : lab === "Chemistry" ? chemistry : IT} className="lab-img" alt={`${lab} Lab`} />
             <input
               type="text"
               placeholder="Name"
@@ -75,7 +70,7 @@ export function Home(){
               onChange={(e) => handleInputChange(index, "batch", e.target.value)}
               defaultValue="Not Selected"
             >
-              <option disabled selected>Batch</option>
+              <option disabled>Batch</option>
               <option>18/19</option>
               <option>19/20</option>
               <option>20/21</option>
@@ -87,11 +82,15 @@ export function Home(){
               className="user-date"
               onChange={(e) => handleInputChange(index, "date", e.target.value)}
             />
-            <button className="book-button" onClick={() => handleBooking(index)}>Book</button>
+            <button
+              className="book-button"
+              onClick={() => handleBooking(index, lab)}
+            >
+              Book
+            </button>
           </div>
         ))}
       </div>
     </>
   );
-  
 }
